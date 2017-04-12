@@ -27,9 +27,9 @@
 (setq magit-completing-read-function 'ivy-completing-read)
 
 
-(setq ivy-re-builders-alist
-      '((ivy-switch-buffer . ivy--regex-plus)
-        (t . ivy--regex-fuzzy)))
+;;(setq ivy-re-builders-alist
+  ;;    '((ivy-switch-buffer . ivy--regex-plus)
+    ;;    (t . ivy--regex-fuzzy)))
 
 (global-set-key (kbd "C-.") #'ivy-imenu-anywhere)
 

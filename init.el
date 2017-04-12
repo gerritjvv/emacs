@@ -4,24 +4,46 @@
 ;;   M-x query-replace-regexp | list-matching-lines
 ;;
 
+(defun my-filter (condp lst)
+    (delq nil
+          (mapcar (lambda (x) (and (funcall condp x) x)) lst)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;; Package init
 
 (setq load-path (cons "~/.emacs.d/ext" load-path))
 
-(require 'package) ;; You might already have this line
+;;(require 'package) ;; You might already have this line
 
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
+;;(add-to-list 'package-archives
+ ;;            '("melpa" . "https://melpa.org/packages/"))
 
-(package-initialize)
+;;(package-initialize)
+
+(defvar cask-paths '("/usr/local/share/emacs/site-lisp/cask/cask.el"
+                         "~/.cask/cask.el"))
+
+(require 'cask (car (my-filter 'file-exists-p cask-paths)))
+
+(cask-initialize)
+
+(require 'pallet)
+(pallet-mode t)
 
 (load "ivy.el")
 (load "window.el")
 
+(require 'dash)
+
 ;;(load "helm.el")
 
-;;(helm-mode 1)
+;;;;;;;;;; copy shell paths
+;;; https://github.com/purcell/exec-path-from-shell
+
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;; unscroll  Writing GNU Emacs extension CH1 & CH2
 
@@ -69,7 +91,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (find-file-in-project helm-descbinds counsel-projectile projectile swiper-helm counsel ivy helm))))
+    (ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
