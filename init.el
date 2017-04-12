@@ -4,6 +4,21 @@
 ;;   M-x query-replace-regexp | list-matching-lines
 ;;
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
+(setq load-prefer-newer t)
+
 (defun my-filter (condp lst)
     (delq nil
           (mapcar (lambda (x) (and (funcall condp x) x)) lst)))
@@ -12,13 +27,6 @@
 ;;;;;;;;;;;;; Package init
 
 (setq load-path (cons "~/.emacs.d/ext" load-path))
-
-;;(require 'package) ;; You might already have this line
-
-;;(add-to-list 'package-archives
- ;;            '("melpa" . "https://melpa.org/packages/"))
-
-;;(package-initialize)
 
 (defvar cask-paths '("/usr/local/share/emacs/site-lisp/cask/cask.el"
                          "~/.cask/cask.el"))
@@ -30,12 +38,11 @@
 (require 'pallet)
 (pallet-mode t)
 
-(load "ivy.el")
-(load "window.el")
+(load "my-ivy")
+(load "my-window")
 
 (require 'dash)
 
-;;(load "helm.el")
 
 ;;;;;;;;;; copy shell paths
 ;;; https://github.com/purcell/exec-path-from-shell

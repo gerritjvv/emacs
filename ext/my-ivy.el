@@ -12,11 +12,10 @@
 (require 'counsel-projectile)
 (require 'imenu-anywhere)
 
-
-(ivy-mode 1)
-(projectile-mode 1)
-
 (counsel-projectile-on)
+
+(projectile-mode 1)
+(ivy-mode 1)
 
 
 (setq ivy-use-virtual-buffers t)
