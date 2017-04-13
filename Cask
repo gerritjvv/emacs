@@ -7,6 +7,7 @@
 (depends-on "counsel-gtags")
 (depends-on "counsel-projectile")
 (depends-on "dash")
+(depends-on "epc")
 (depends-on "exec-path-from-shell")
 (depends-on "imenu-anywhere")
 (depends-on "ivy")
@@ -17,3 +18,4 @@
 (depends-on "projectile")
 (depends-on "swiper")
 (depends-on "which-key")
+(depends-on "zenburn-theme")
