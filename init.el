@@ -89,9 +89,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("f5512c02e0a6887e987a816918b7a684d558716262ac7ee2dd0437ab913eaec6" default)))
  '(package-selected-packages
    (quote
-    (which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy))))
+    (zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
+ '(which-key-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
