@@ -91,7 +91,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy))))
+    (which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -16,3 +16,4 @@
 (depends-on "project")
 (depends-on "projectile")
 (depends-on "swiper")
+(depends-on "which-key")
