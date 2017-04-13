@@ -19,4 +19,15 @@ source ~/.profile
 cask install
 
 
+## for webkit
+brew install python
+brew linkapps python
+brew install pyqt5 --with-python --without-python3
+
+brew linkapps qt5
+
+sudo pip install svn+https://svn.code.sf.net/p/python-xlib/code/trunk/
+sudo pip install epc
+
+mkdir ~/.workspace && cd ~/.workspace && git clone https://github.com/qt/qtwebkit.git && cd qtwebkit && git checkout 5.5 
 
