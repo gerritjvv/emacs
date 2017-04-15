@@ -35,7 +35,8 @@
 (load "my-window")
 (load "my-git")
 
-(require 'dash)
+(global-auto-revert-mode 1)
+
 
 
 ;;;;;;;;;; copy shell paths

@@ -7,7 +7,7 @@
 (depends-on "imenu-anywhere")
 (depends-on "pallet")
 
-(epends-on "ag")
+(depends-on "ag")
 (depends-on "counsel")
 (depends-on "counsel-gtags")
 (depends-on "counsel-projectile")
