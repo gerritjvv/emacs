@@ -23,3 +23,5 @@
 (depends-on "use-package")
 (depends-on "which-key")
 (depends-on "zenburn-theme")
+
+(depends-on "exec-path-from-shell")
