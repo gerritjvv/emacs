@@ -110,3 +110,32 @@
   (if unscroll-hscroll
       (set-window-hscroll nil unscroll-hscroll)))
 
+(global-set-key (kbd "C-c <up>") 'enlarge-window)                    ;; make window taller
+(global-set-key (kbd "C-c <down>") 'shrink-window)                   ;; make window shorter
+(global-set-key (kbd "C-c <right>") 'enlarge-window-horizontally)    ;; make window wider
+(global-set-key (kbd "C-c <left>") 'shrink-window-horizontally)      ;; make window less wide
+
+(when (and (string-equal system-type "darwin") (member "Iosevka" (font-family-list)))
+  (set-default-font "Iosevka"))
+
+
+(require 'dumb-jump)
+
+(use-package dumb-jump
+  :bind (("M-g o" . dumb-jump-go-other-window)
+         ("M-g j" . dumb-jump-go)
+         ("M-g x" . dumb-jump-go-prefer-external)
+         ("M-g z" . dumb-jump-go-prefer-external-other-window))
+  :config (setq dumb-jump-selector 'ivy
+		dumb-jump-aggressive nil
+		dumb-jump-prefer-searcher 'rg) ;; (setq dumb-jump-selector 'helm)
+  :ensure)
+
+
+(use-package undo-tree
+  :bind (:map undo-tree-map
+              ("C-x u" . undo-tree-visualize)
+	      ("C-/" . undo-tree-undo)
+              ("s-Z" . undo-tree-redo)
+              ("C-x v" . undo-tree-visualize))
+  :config (global-undo-tree-mode t))
