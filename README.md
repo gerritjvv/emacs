@@ -56,11 +56,15 @@ Quick jump between windows.
 
 Best search
 
-### webkit
+### Ag or Rgrep (Better Grep)
 
-webkit: https://www.emacswiki.org/emacs/WebKit
+Prefer Rgrep (its faster)
+Use Ag as a better grep http://agel.readthedocs.io/en/latest/index.html
 
-requires python dependencies installed in ```install.sh```
+ag and ag-counsel provide the best grep functionality and can work per
+project or just on files.
 
-PyQt5, PythonXlib, PythonEPC
+install locally with ```brew install ag``` and ```brew install rg```
+
+### Undo tree
 
