@@ -1,11 +1,12 @@
 (source gnu)
 (source melpa)
 
-(depends-on "company")
 (depends-on "ace-window")
 (depends-on "ag")
 (depends-on "cask")
 (depends-on "cider")
+(depends-on "company")
+(depends-on "company-quickhelp")
 (depends-on "counsel")
 (depends-on "counsel-gtags")
 (depends-on "counsel-projectile")

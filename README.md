@@ -68,3 +68,9 @@ install locally with ```brew install ag``` and ```brew install rg```
 
 ### Undo tree
 
+Undo stuff with a tree view.
+
+### Company
+
+company quick help https://github.com/expez/company-quickhelp/blob/master/README.md
+
