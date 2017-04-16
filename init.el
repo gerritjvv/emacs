@@ -34,10 +34,10 @@
 (load "my-ivy")
 (load "my-window")
 (load "my-git")
+(load "my-clojure")
 
 (global-auto-revert-mode 1)
-
-
+(global-company-mode)
 
 ;;;;;;;;;; copy shell paths
 ;;; https://github.com/purcell/exec-path-from-shell
@@ -96,7 +96,7 @@
     ("f5512c02e0a6887e987a816918b7a684d558716262ac7ee2dd0437ab913eaec6" default)))
  '(package-selected-packages
    (quote
-    (undo-tree magit use-package ag dumb-jump counsel-gtags ggtags company-emacs-eclim eclim zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
+    (smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags company-emacs-eclim eclim zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
  '(which-key-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
