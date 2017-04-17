@@ -19,6 +19,7 @@
 (depends-on "ivy-rtags")
 (depends-on "magit")
 (depends-on "pallet")
+
 (depends-on "project")
 (depends-on "projectile")
 (depends-on "smartparens")
