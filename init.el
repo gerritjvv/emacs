@@ -8,6 +8,9 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+
+(require 'package)
+
 (package-initialize)
 
 (setq load-prefer-newer t)
@@ -30,6 +33,14 @@
 
 (require 'pallet)
 (pallet-mode t)
+
+(require 'company)
+
+(add-hook 'after-init-hook 'global-company-mode)
+
+(require 'flycheck)
+(global-flycheck-mode)
+
 
 (load "my-ivy")
 (load "my-window")
@@ -96,7 +107,8 @@
     ("f5512c02e0a6887e987a816918b7a684d558716262ac7ee2dd0437ab913eaec6" default)))
  '(package-selected-packages
    (quote
-    (undo-tree magit use-package ag dumb-jump counsel-gtags ggtags company-emacs-eclim eclim zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
+    (flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons neotree sr-speedbar groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
+ '(projectile-mode t nil (projectile))
  '(which-key-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

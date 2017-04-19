@@ -1,7 +1,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;; windowing movement functions
 
+(require 'zenburn-theme)
+(load-theme 'zenburn t)
+
 (desktop-save-mode 1)
+
+(require 'all-the-icons)
+
+(require 'neotree)
+
+(global-set-key [f8] 'neotree-toggle)
 
 (require 'ace-window)
 
@@ -27,6 +36,9 @@
   (other-window (- (or n 1))))
 
 (global-set-key "\C-x\C-p" 'other-window-backward)
+
+(toggle-frame-fullscreen)
+(fset `yes-or-no-p `y-or-n-p)
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
