@@ -68,9 +68,15 @@ install locally with ```brew install ag``` and ```brew install rg```
 
 ### Undo tree
 
-Undo stuff with a tree view.
+visualise undo commands
 
-### Company
+### Clojure
 
-company quick help https://github.com/expez/company-quickhelp/blob/master/README.md
 
+https://github.com/clojure-emacs/cider
+
+### Java & Scala dev
+
+Run ```./gradlew ensime``` to generate an ensime file.
+
+http://ensime.org/editors/emacs/install/
