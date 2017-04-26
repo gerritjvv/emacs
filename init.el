@@ -45,6 +45,7 @@
 (load "my-ivy")
 (load "my-window")
 (load "my-git")
+(load "my-org")
 
 (global-auto-revert-mode 1)
 
@@ -74,7 +75,9 @@
 
 (put 'eval-expression 'disabled nil)
 
+(require 'god-mode)
 
+(global-set-key (kbd "<f12>") 'god-mode)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;; Searching and Modifying Buffers  Writing GNU Emac CH4
 
@@ -104,10 +107,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("f5512c02e0a6887e987a816918b7a684d558716262ac7ee2dd0437ab913eaec6" default)))
+    ("4980e5ddaae985e4bae004280bd343721271ebb28f22b3e3b2427443e748cd3f" "f5512c02e0a6887e987a816918b7a684d558716262ac7ee2dd0437ab913eaec6" default)))
  '(package-selected-packages
    (quote
-    (flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons neotree sr-speedbar groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
+    (god-mode org-projectile noctilux-theme org-pomodoro dashboard projectile-speedbar flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons neotree groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
  '(projectile-mode t nil (projectile))
  '(which-key-mode t))
 (custom-set-faces
