@@ -48,8 +48,9 @@
 (load "my-org")
 
 (global-auto-revert-mode 1)
+(global-company-mode)
 
-
+(company-quickhelp-mode 1)
 
 ;;;;;;;;;; copy shell paths
 ;;; https://github.com/purcell/exec-path-from-shell

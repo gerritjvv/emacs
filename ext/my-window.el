@@ -1,4 +1,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;; themes
+
+(load-theme 'zenburn t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;; windowing movement functions
 
 (require 'zenburn-theme)
@@ -151,3 +156,4 @@
               ("s-Z" . undo-tree-redo)
               ("C-x v" . undo-tree-visualize))
   :config (global-undo-tree-mode t))
+
