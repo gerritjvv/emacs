@@ -74,7 +74,8 @@
 (setq projectile-globally-ignored-directories (append '(".ensime_cache.d"
 							"bin"
 							".gradle"
-							".gradle-old")
+							".gradle-old"
+							".cask")
 						      projectile-globally-ignored-directories))
 						      
 
