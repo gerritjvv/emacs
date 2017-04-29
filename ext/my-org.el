@@ -3,13 +3,29 @@
 
 ;;; Code:
 ;;; from https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html
+;;; http://sachachua.com/blog/2015/02/learn-take-notes-efficiently-org-mode/
 
 (require 'find-lisp)
+(require 'dash)
+(require 'org)
+(require 'my-util)
 
 (setq org-agenda-files (find-lisp-find-files "~/Dropbox/Org/" "\\.org$"))
 
 (setq org-return-follows-link t)
 
+    
+
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c t") (lambda (&rest args)
+				(interactive "p")
+				(if (util-line-contains-opt-p "[]" "[ ]" "[X]" "[x]" "[-]")
+				    (org-toggle-checkbox)
+				  (org-todo))))
+				
+(setq org-refile-targets (-map (lambda (x) `(,x :maxlevel . 1)) (org-agenda-files)))
+
+(setq org-default-notes-file "~/Dropbox/Org/todo.org")
 
 (setq org-agenda-custom-commands
       '(("d" "Daily agenda and all TODOs"

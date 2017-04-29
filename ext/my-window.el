@@ -35,6 +35,8 @@
 
 (global-set-key (kbd "C-x C-n") 'ace-window)
 
+(windmove-default-keybindings 'meta)
+
 (defun other-window-backward (&optional n)
   "Select the previous window."
   (interactive "p")
