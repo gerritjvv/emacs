@@ -1,6 +1,6 @@
 ;;; https://sites.google.com/site/steveyegge2/effective-emacs
 ;;; M-x describe-bindings|describe-key|apropos|info
-;;; 
+;;;
 
 
 
@@ -22,7 +22,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;; Package init
 
-(setq load-path (cons "~/.emacs.d/ext" load-path))
+(setq load-path (append '("~/.emacs.d/ext" "~/.emacs.d/ext/treemacs") load-path))
 
 (defvar cask-paths '("/usr/local/share/emacs/site-lisp/cask/cask.el"
                          "~/.cask/cask.el"))
@@ -41,11 +41,19 @@
 (require 'flycheck)
 (global-flycheck-mode)
 
+(require 'editorconfig)
+(editorconfig-mode 1)
+
+(load "treemacs")
 
 (load "my-ivy")
 (load "my-window")
 (load "my-git")
 (load "my-org")
+(load "my-java-scala")
+
+(load "my-cheatsheet")
+(load "my-style")
 
 (global-auto-revert-mode 1)
 (global-company-mode)
@@ -111,7 +119,7 @@
     ("4980e5ddaae985e4bae004280bd343721271ebb28f22b3e3b2427443e748cd3f" "f5512c02e0a6887e987a816918b7a684d558716262ac7ee2dd0437ab913eaec6" default)))
  '(package-selected-packages
    (quote
-    (better-shell shell-pop god-mode org-projectile noctilux-theme org-pomodoro dashboard projectile-speedbar flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons neotree groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
+    (ensime cssh editorconfig clojure-cheatsheet cheatsheet better-shell shell-pop god-mode org-projectile noctilux-theme org-pomodoro dashboard projectile-speedbar flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons neotree groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
  '(projectile-mode t nil (projectile))
  '(which-key-mode t))
 (custom-set-faces

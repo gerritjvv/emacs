@@ -13,9 +13,9 @@
 
 (require 'all-the-icons)
 
-(require 'neotree)
+(require 'treemacs)
 
-(global-set-key [f8] 'neotree-toggle)
+(global-set-key [f8] 'treemacs-toggle)
 
 (require 'ace-window)
 

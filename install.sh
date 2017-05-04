@@ -23,3 +23,5 @@ brew install ag
 brew install rg
 
 brew install sbt
+
+brew install editorconfig

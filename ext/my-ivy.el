@@ -38,7 +38,7 @@
 
 (global-set-key (kbd "C-.") #'ivy-imenu-anywhere)
 
-(global-set-key (kbd "<f3>") 'my-ansi-term)
+(global-set-key (kbd "<f3>") 'ansi-term)
 
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -46,9 +46,9 @@
 (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 
-(global-set-key (kbd "<f1> f") 'counsel-describe-function)
-(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-(global-set-key (kbd "<f1> l") 'counsel-find-library)
+(global-set-key (kbd "<f2> f") 'counsel-describe-function)
+(global-set-key (kbd "<f2> v") 'counsel-describe-variable)
+(global-set-key (kbd "<f2> l") 'counsel-find-library)
 (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
 (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
 
@@ -63,40 +63,55 @@
 
 ;;;;;;;;; projectile specific
 
-(setq projectile-sort-order 'recently-active)
+(setq projectile-sort-order 'recentf)
 
 (setq projectile-globally-ignored-files (append '(".ensime"
 						  ".gitignore"
 						  ".bintray"
-						  ".travis.yml")
+						  ".travis.yml"
+						  ".cask")
 						projectile-globally-ignored-files))
 
 (setq projectile-globally-ignored-directories (append '(".ensime_cache.d"
 							"bin"
 							".gradle"
 							".gradle-old"
-							".cask")
+							".cask"
+							"elpa")
 						      projectile-globally-ignored-directories))
-						      
 
-(setq projectile-globally-ignored-file-suffixes '(".class" ".jar" ".dat" ".rpm" ".deb" ".bin" ".tar" ".tar.gz" ".gz" ".bz2" ".lzo" ".zip" ".el~" ".el#" ".cache" ".el.swp"))
+
+(setq projectile-globally-ignored-file-suffixes '(".class" ".jar" ".dat" ".rpm" ".deb" ".bin" ".tar" ".tar.gz" ".gz" ".bz2" ".lzo" ".zip" ".el~" ".el#" ".cache" ".el.swp" ".png" ".jpg" ".gif"))
+
+;; (defcustom my-programming-extensions '(".java" ".clj" ".org" ".md" ".el")
+;;   "Programming language file extensions used in sorting projectile files."
+;;   :type '(string)
+;;   :group 'my)
+
+;; (defun my-prog-file-p (file)
+;;   "Return 't if the FILE extension is in my-programming-extensions."
+;;   (-contains? my-programming-extensions (file-name-extension file ".")))
+
+;; (defun my-up-prog-files (files)
+;;   "Bubble all programming FILES to the top of the list."
+;;   (let* ((g (-group-by 'my-prog-file-p files))
+;; 	(prog-files (assoc 't g))
+;; 	(other-files (assoc nil g)))
+;;     (append (cdr prog-files) (cdr other-files))))
+
+
+;; (defadvice projectile-sort-files
+;;     (before  my-sort-programming-files-first
+;; 	    (files)
+;; 	    activate compile)
+;;   "Display files with programming language extensions first."
+
+;;   (my-up-prog-files files))
+
+;; https://ftp.gnu.org/old-gnu/Manuals/elisp-manual-21-2.8/html_node/elisp_394.html
+;; "file-name-extension filename &optional period"
 
 ;;(setq projectile-switch-project-action )
 
-(defun my-projectile-switch-project-action (&optional input)
-  "Open a project view with neotree and term.
-INPUT is ignored"
-  (interactive)
-  (delete-other-windows)
-  (projectile-find-file)
-  (split-window-below -10)
-  (other-window 1)
-  
-					;(neotree-projectile-action)
-  (my-ansi-term)
-	     
-  (other-window 1))
-  
 (provide 'my-ivy)
 ;;; my-ivy.el ends here
-
