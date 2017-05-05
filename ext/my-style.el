@@ -48,7 +48,7 @@
     (tuple    'linux)
     (tuple    'python)
     (tuple    'java)))
-    
+
 (defun parse-brace-style (style)
   "Return the correct symbol from the STYLE string or if not supported use BSD."
   (car
@@ -56,7 +56,7 @@
     (if (string-or-null-p style) (intern (downcase style)) style)
     brace-style-alist
     '(bsd))))
-	     
+
 
 (defun my-create-style-from-config (cfg)
   "Create a style list from CFG which should be the editorconfig hash."
@@ -64,13 +64,13 @@
 
 
     (c-tab-always-indent        . t)
-						
+
     (c-cleanup-list             . (scope-operator
 				   empty-defun-braces
 				   defun-close-semi))
-                        
+
     (c-require-final-newline d. ,(gethash 'insert_final_newline cfg 't))
-    
+
     (c-echo-syntactic-information-p . t)))
 
 
@@ -79,17 +79,19 @@
   (or (projectile-project-name)
       default))
 
-(setq my-mode-style nil)
+(defvar my-mode-style nil
+  "Store the current style selected from eidtorconfig-custom-hooks.
+Used in my-set-style to set the current 'c-set-style'.")
 
 (defun my-set-style ()
-
+  "Set 'c-set-style' to 'my-mode-style' if not void."
   (if (not (null my-mode-style))
       (progn
 	(c-toggle-auto-newline 1)
 	(c-set-style my-mode-style))))
 
 (add-hook 'c-mode-common-hook 'my-set-style)
-	  
+
 
 ;;; Issue with when to load all the set style code,
 ;;; we only get the editor config hook but c-mode is not yet enabled
@@ -98,15 +100,18 @@
 ;; on editor config load, create a c-style and add
 (add-hook 'editorconfig-custom-hooks
 	  (lambda (cfg)
-	    (let ((pname (my-projectile-name-or-default "user")))
-	      
-	      (c-add-style pname
-			   (my-create-style-from-config cfg))
-		  
-	      (setq my-mode-style pname)
 
-	      (if (derived-mode-p 'c-mode 'java-mode 'c++-mode)
-		  (my-set-style)))))
+	    (let ((pname (my-projectile-name-or-default "user")))
+	      (if (not (string= pname my-mode-style))
+
+		  (warn (format "Setting my-mode-style for current project %s" pname))
+		  (c-add-style pname
+			       (my-create-style-from-config cfg))
+
+		(setq my-mode-style pname)
+
+		(if (derived-mode-p 'c-mode 'java-mode 'c++-mode)
+		    (my-set-style))))))
 
 ;;(c-add-style "PERSONAL" my-java-style)
 

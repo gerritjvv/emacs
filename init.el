@@ -38,9 +38,6 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 
-(require 'flycheck)
-(global-flycheck-mode)
-
 (require 'editorconfig)
 (editorconfig-mode 1)
 
@@ -59,6 +56,10 @@
 (global-company-mode)
 
 (company-quickhelp-mode 1)
+
+(require 'flycheck)
+
+(global-flycheck-mode)
 
 ;;;;;;;;;; copy shell paths
 ;;; https://github.com/purcell/exec-path-from-shell
@@ -119,7 +120,7 @@
     ("4980e5ddaae985e4bae004280bd343721271ebb28f22b3e3b2427443e748cd3f" "f5512c02e0a6887e987a816918b7a684d558716262ac7ee2dd0437ab913eaec6" default)))
  '(package-selected-packages
    (quote
-    (ensime cssh editorconfig clojure-cheatsheet cheatsheet better-shell shell-pop god-mode org-projectile noctilux-theme org-pomodoro dashboard projectile-speedbar flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons neotree groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
+    (cssh editorconfig clojure-cheatsheet cheatsheet better-shell shell-pop god-mode org-projectile noctilux-theme org-pomodoro dashboard projectile-speedbar flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
  '(projectile-mode t nil (projectile))
  '(which-key-mode t))
 (custom-set-faces

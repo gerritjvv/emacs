@@ -1,18 +1,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Commentry:
+
 ;;;;;;;;;; Java and Scala dev
-;;;;;;;;;; http://ensime.org/editors/emacs/install/
+;;;;;;;;;; https://github.com/mopemope/meghanada-emacs
 
 
 
 ;;; Code:
 
-(require 'editorconfig)
 
-
-;;c-indent-line is called after hitting RET
-;; (defun my-print-syntax-context (&rest args)
-  ;; (message (format "Syntax context %s" args)))
-
+(require 'flycheck)
 ;; (advice-add 'c-indent-line :after #'my-print-syntax-context)
 ;; (advice-remove 'c-indent-line #'my-print-syntax-context)
 
@@ -22,7 +19,8 @@
 	    (lambda ()
 	       (editorconfig-mode t)      ;;reads the .editorconfig files and applies format, only to new files
                (meghanada-mode t)
-               (c-toggle-auto-newline 't) ;;automatically insert new lines where required
+
+               (c-toggle-auto-newline 't) ;;automatically insert new lines where
                (add-hook 'before-save-hook 'delete-trailing-whitespace)))
 
   (add-hook 'groovy-mode-hook
