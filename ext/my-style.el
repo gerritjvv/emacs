@@ -100,18 +100,23 @@ Used in my-set-style to set the current 'c-set-style'.")
 ;; on editor config load, create a c-style and add
 (add-hook 'editorconfig-custom-hooks
 	  (lambda (cfg)
-
+	    (warn (format "In editor-cusomt-hook"))
 	    (let ((pname (my-projectile-name-or-default "user")))
+	      (warn (format "Compare pname[%s] == my-mode-style[%s]" pname my-mode-style))
 	      (if (not (string= pname my-mode-style))
+		  (progn
+		    (warn "Changing ctyle")
+		    (c-add-style pname
+				 (my-create-style-from-config cfg))
 
-		  (warn (format "Setting my-mode-style for current project %s" pname))
-		  (c-add-style pname
-			       (my-create-style-from-config cfg))
+		    (setq my-mode-style pname)
 
-		(setq my-mode-style pname)
+		    (warn (format "Set my-mode-style to %s" my-mode-style))
 
-		(if (derived-mode-p 'c-mode 'java-mode 'c++-mode)
-		    (my-set-style))))))
+		    (if (derived-mode-p 'c-mode 'java-mode 'c++-mode)
+			(my-set-style)))))))
+
+
 
 ;;(c-add-style "PERSONAL" my-java-style)
 
