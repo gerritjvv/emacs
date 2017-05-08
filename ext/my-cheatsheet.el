@@ -12,6 +12,7 @@
 		      '(:key "C-c k"   :description "Ag project aware"))
 
 (cheatsheet-add-group 'Text
+		      '(:key "C-x u/v" :description "Visual undo")
 		      '(:key "C-w" :description "Kill backward word")
 		      '(:key "M-w" :description "Copy to kill ring")
 		      '(:key "M-y" :description "Show kill ring")

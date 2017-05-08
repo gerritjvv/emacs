@@ -65,10 +65,13 @@
 
 (setq projectile-sort-order 'recentf)
 
+(setq projectile-mode-line '(:eval (format "P[%s]" (projectile-project-name))))
+
 (setq projectile-globally-ignored-files (append '(".ensime"
 						  ".gitignore"
 						  ".bintray"
 						  ".travis.yml"
+						  ".mode"
 						  ".cask")
 						projectile-globally-ignored-files))
 
@@ -76,40 +79,14 @@
 							"bin"
 							".gradle"
 							".gradle-old"
+							".metadata"
 							".cask"
 							"elpa")
 						      projectile-globally-ignored-directories))
 
 
-(setq projectile-globally-ignored-file-suffixes '(".class" ".jar" ".dat" ".rpm" ".deb" ".bin" ".tar" ".tar.gz" ".gz" ".bz2" ".lzo" ".zip" ".el~" ".el#" ".cache" ".el.swp" ".png" ".jpg" ".gif"))
-
-;; (defcustom my-programming-extensions '(".java" ".clj" ".org" ".md" ".el")
-;;   "Programming language file extensions used in sorting projectile files."
-;;   :type '(string)
-;;   :group 'my)
-
-;; (defun my-prog-file-p (file)
-;;   "Return 't if the FILE extension is in my-programming-extensions."
-;;   (-contains? my-programming-extensions (file-name-extension file ".")))
-
-;; (defun my-up-prog-files (files)
-;;   "Bubble all programming FILES to the top of the list."
-;;   (let* ((g (-group-by 'my-prog-file-p files))
-;; 	(prog-files (assoc 't g))
-;; 	(other-files (assoc nil g)))
-;;     (append (cdr prog-files) (cdr other-files))))
-
-
-;; (defadvice projectile-sort-files
-;;     (before  my-sort-programming-files-first
-;; 	    (files)
-;; 	    activate compile)
-;;   "Display files with programming language extensions first."
-
-;;   (my-up-prog-files files))
-
-;; https://ftp.gnu.org/old-gnu/Manuals/elisp-manual-21-2.8/html_node/elisp_394.html
-;; "file-name-extension filename &optional period"
+(setq projectile-globally-ignored-file-suffixes '(".class" ".jar" ".dat" ".rpm" ".deb" ".bin" ".tar" ".tar.gz" ".gz" ".bz2" ".lzo" ".zip" ".el~" ".el#" ".cache" ".el.swp" ".png" ".jpg" ".gif"
+ ".java#" ".org#"))
 
 ;;(setq projectile-switch-project-action )
 

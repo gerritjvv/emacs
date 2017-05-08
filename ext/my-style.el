@@ -29,8 +29,9 @@
 ;;                                    (knr-argdecl-intro . -)))
 ;;     (c-require-final-newline    . f)
 ;;     (c-echo-syntactic-information-p . t)))
-
+(require 'cc-mode)
 (require 'editorconfig)
+(require 'projectile)
 
 (editorconfig-mode 1)
 
@@ -79,42 +80,48 @@
   (or (projectile-project-name)
       default))
 
+(defvar my-editorconfig nil
+  "Store the editorconfig hash from the 'editorconfig-custom-hooks.")
+
 (defvar my-mode-style nil
   "Store the current style selected from eidtorconfig-custom-hooks.
 Used in my-set-style to set the current 'c-set-style'.")
 
-(defun my-set-style ()
-  "Set 'c-set-style' to 'my-mode-style' if not void."
-  (if (not (null my-mode-style))
+(defun get-my-editorconfig ()
+  "Return 'myeditorconfig or load 'editorconfig-get-properties.
+This function sets my-editorconfig."
+  (if (null my-editorconfig)
       (progn
-	(c-toggle-auto-newline 1)
-	(c-set-style my-mode-style))))
+	(let (cfg (editorconfig-get-properties))
+	  (setq my-editorconfig cfg)
+	  cfg))
+    my-editorconfig))
 
-(add-hook 'c-mode-common-hook 'my-set-style)
+(defun my-set-c-style ()
+  "Read the editorconfig for the project and set c-style accordingly.
+The style is changed only if 'c-indentation-style is not already equal,
+to the project name.  The style is only created once and 'c-style-alist,
+is used to check."
+  (let ((pname (my-projectile-name-or-default "user")))
 
+    ;only change cstyle if the current indentation style != pname
+    (if (not (string= pname c-indentation-style))
+	(progn
+           ;set pname as c-style-alist item if not exist, otherwise reuse existing
+	  (if (not (assoc pname c-style-alist))
+	      (let ((cfg (get-my-editorconfig)))
+		(c-add-style pname
+			     (my-create-style-from-config cfg))))
 
-;;; Issue with when to load all the set style code,
-;;; we only get the editor config hook but c-mode is not yet enabled
-;;;  running this in the c-mode-common-hook gives usues
+	  (c-toggle-auto-newline 1)
+	  (c-set-style pname)))))
 
-;; on editor config load, create a c-style and add
+(add-hook 'c-mode-common-hook 'my-set-c-style)
+
+;; on editor config load save to 'my-editorconfig
 (add-hook 'editorconfig-custom-hooks
 	  (lambda (cfg)
-	    (warn (format "In editor-cusomt-hook"))
-	    (let ((pname (my-projectile-name-or-default "user")))
-	      (warn (format "Compare pname[%s] == my-mode-style[%s]" pname my-mode-style))
-	      (if (not (string= pname my-mode-style))
-		  (progn
-		    (warn "Changing ctyle")
-		    (c-add-style pname
-				 (my-create-style-from-config cfg))
-
-		    (setq my-mode-style pname)
-
-		    (warn (format "Set my-mode-style to %s" my-mode-style))
-
-		    (if (derived-mode-p 'c-mode 'java-mode 'c++-mode)
-			(my-set-style)))))))
+	    (setq my-editorconfig cfg)))
 
 
 

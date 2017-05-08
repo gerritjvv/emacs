@@ -41,6 +41,25 @@
 (require 'editorconfig)
 (editorconfig-mode 1)
 
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
+(require 'saveplace)
+(setq-default save-place t)
+
+(show-paren-mode 1)
+
+;;https://github.com/technomancy/better-defaults/blob/master/better-defaults.el
+(setq save-interprogram-paste-before-kill t
+        apropos-do-all t
+        mouse-yank-at-point t
+        require-final-newline t
+        load-prefer-newer t
+        ediff-window-setup-function 'ediff-setup-windows-plain
+        save-place-file (concat user-emacs-directory "places")
+        backup-directory-alist `(("." . ,(concat user-emacs-directory
+                                                 "backups"))))
+
 (load "treemacs")
 
 (load "my-ivy")
@@ -76,7 +95,7 @@
 
 (global-set-key "\M-?" 'help-command)
 (global-set-key "\C-h" 'delete-backward-char)
-
+(global-set-key "\C-c." 'find-function-at-point)
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-x\C-k" 'kill-region)
 
@@ -98,13 +117,13 @@
   "*Format for \\[insert-date\ (c.f. 'format-time-string').")
 
 (defun insert-time ()
-  "Insert the current time according to insert-time-format"
+  "Insert the current time according to insert-time-format."
   (interactive "*")
   (insert (format-time-string insert-time-format
 			      (current-time))))
 
 (defun insert-date ()
-  "Insert the current date according to insert-date-format"
+  "Insert the current date according to insert-date-format."
   (interactive "*")
   (insert (format-time-string insert-date-format
 			      (current-time))))
