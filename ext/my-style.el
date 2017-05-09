@@ -63,12 +63,10 @@
   "Create a style list from CFG which should be the editorconfig hash."
   `(,(format "%s" (parse-brace-style (gethash 'indent_brace_style cfg "bsd")))
 
-
+    (c-basic-offset             (gethash 'indent_size cfg 4))
     (c-tab-always-indent        . t)
 
-    (c-cleanup-list             . (scope-operator
-				   empty-defun-braces
-				   defun-close-semi))
+    (c-cleanup-list             . (scope-operator))
 
     (c-require-final-newline d. ,(gethash 'insert_final_newline cfg 't))
 

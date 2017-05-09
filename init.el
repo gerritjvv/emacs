@@ -80,6 +80,9 @@
 
 (global-flycheck-mode)
 
+(require 'eldoc)
+(global-eldoc-mode t)
+
 ;;;;;;;;;; copy shell paths
 ;;; https://github.com/purcell/exec-path-from-shell
 

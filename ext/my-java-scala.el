@@ -24,6 +24,7 @@
 	      ("C-c C-j i" . meghanada-import-all)
 	      ("C-c C-j o" . meghanada-optimize-import)
 	      ("C-c C-j l" . meghanada-local-variable)
+	      ("C-c C-j r" . meghanada-run-task)
 	      ("C-c C-j j" . javadoc-lookup)
 	      ("C-c C-j c f" . meghanada-compile-file)
 	      ("C-c C-j c p" . meghanada-project-compile)
@@ -47,6 +48,21 @@
 	    (gradle-mode t)))
 
 
+
+(defun java-class-lookup (prefix maybe-pred-f op)
+  "TODO."
+  (company-complete)
+  (let ((candidates (company-meghanada 'candidates prefix)))
+    (warn "CANDIDATES [%s] \n %S" prefix candidates)
+    '("abc-123" "abc-456")))
+
+(defun class-lookup ()
+  "Hi."
+  (interactive)
+  (let ((cls (completing-read "Class" 'java-class-lookup)))
+    (warn (format "Got %s" cls))))
+
+(global-key-binding (kbd "<f5>") 'class-lookup)
 
 					;spaces_around_operators = true
 					;spaces_around_brackets = none
