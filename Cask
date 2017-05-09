@@ -32,6 +32,7 @@
 (depends-on "imenu-anywhere")
 (depends-on "ivy")
 (depends-on "ivy-rtags")
+(depends-on "javadoc-lookup")
 (depends-on "magit")
 (depends-on "magit-popup")
 (depends-on "meghanada")

@@ -17,6 +17,30 @@
 
 (global-set-key [f8] 'treemacs-toggle)
 
+(when (require 'diminish nil 'noerror)
+  (eval-after-load "company"
+      '(diminish 'company-mode "Cmp"))
+  (eval-after-load "abbrev"
+    '(diminish 'abbrev-mode "Ab"))
+  (eval-after-load "ivy"
+    '(diminish 'ivy-mode ""))
+
+  (eval-after-load "eldoc"
+    '(diminish 'eldoc-mode ""))
+
+  (eval-after-load "undo-tree"
+    '(diminish 'undo-tree-mode ""))
+
+  (eval-after-load "editorconfig"
+    '(diminish 'editorconfig-mode "ecfg"))
+
+  (eval-after-load "yasnippet"
+    '(diminish 'yas/minor-mode "Y")))
+
+(add-hook 'emacs-lisp-mode-hook
+  (lambda()
+    (setq mode-name "el")))
+
 (require 'ace-window)
 
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
@@ -158,4 +182,3 @@
               ("s-Z" . undo-tree-redo)
               ("C-x v" . undo-tree-visualize))
   :config (global-undo-tree-mode t))
-

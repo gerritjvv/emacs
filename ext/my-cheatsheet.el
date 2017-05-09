@@ -35,6 +35,17 @@
 (cheatsheet-add-group 'Help
 		      '(:key "<f2> f/v/l/i" :description "describe function, variable, library, symbol"))
 
+(cheatsheet-add-group 'Java
+		      '(:key "C-c C-j j" :description "javadoc lookup")
+		      '(:key "C-c C-j i" :description "import all")
+		      '(:key "C-c C-j o" :description "optimize imports")
+		      '(:key "C-c C-j l" :description "local variable")
+		      '(:key "C-c C-j c f" :description "compile file")
+		      '(:key "C-c C-j c p" :description "compile project")
+		      '(:key "C-c C-j t c" :description "junit class")
+		      '(:key "C-c C-j t t" :description "junit test case")
+		      '(:key "M-."       :description "jump to declaration")
+		      '(:key "M-,"       :description "jump back"))
 
 (provide 'my-cheatsheet)
 ;;; my-cheatsheet.el ends here

@@ -14,6 +14,7 @@
 (require 'projectile)
 (require 'counsel-projectile)
 (require 'imenu-anywhere)
+(require 'magit)
 
 (counsel-projectile-on)
 
