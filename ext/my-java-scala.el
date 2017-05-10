@@ -15,8 +15,37 @@
 (require 'cc-mode)
 (require 'eldoc)
 (require 'ivy)
+(require 'yasnippet)
+(require 'java-snippets)
 
 (setq javadoc-lookup-completing-read-function 'ivy-completing-read)
+
+
+(defun my--java-new-class ()
+  "Create a new java class file."
+  (interactive)
+  (let* ((buff (call-interactively 'find-file)))
+    (with-current-buffer buff
+      (widen)
+      (goto-char (point-min))
+
+      ;;insert package
+      (insert "pa")
+      (call-interactively 'yas-expand)
+      (goto-char (point-max))
+      (newline 2)
+
+      ;;inset class
+      (beginning-of-line)
+      (insert "cla")
+      (call-interactively 'yas-expand)
+
+      (call-interactively 'yas-exit-all-snippets)
+
+      (goto-char (point-min))
+      (search-forward "{")
+      (newline 2))))
+
 
 (use-package meghanada
   :bind (
@@ -26,6 +55,7 @@
 	      ("C-c C-j l" . meghanada-local-variable)
 	      ("C-c C-j r" . meghanada-run-task)
 	      ("C-c C-j j" . javadoc-lookup)
+	      ("C-c C-j n c" . my--java-new-class)
 	      ("C-c C-j c f" . meghanada-compile-file)
 	      ("C-c C-j c p" . meghanada-project-compile)
 	      ("C-c C-j t c" . meghanada-run-junit-class)
@@ -37,6 +67,7 @@
 	  (lambda ()
 	    (editorconfig-mode t)      ;;reads the .editorconfig files and applies format, only to new files
 	    (meghanada-mode t)
+	    (yas-minor-mode-on)
 	    (eldoc-mode t)
 	    (c-toggle-auto-newline 't) ;;automatically insert new lines where
 	    (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -49,20 +80,8 @@
 
 
 
-(defun java-class-lookup (prefix maybe-pred-f op)
-  "TODO."
-  (company-complete)
-  (let ((candidates (company-meghanada 'candidates prefix)))
-    (warn "CANDIDATES [%s] \n %S" prefix candidates)
-    '("abc-123" "abc-456")))
 
-(defun class-lookup ()
-  "Hi."
-  (interactive)
-  (let ((cls (completing-read "Class" 'java-class-lookup)))
-    (warn (format "Got %s" cls))))
 
-(global-key-binding (kbd "<f5>") 'class-lookup)
 
 					;spaces_around_operators = true
 					;spaces_around_brackets = none

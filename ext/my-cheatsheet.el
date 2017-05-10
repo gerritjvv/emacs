@@ -44,6 +44,7 @@
 		      '(:key "C-c C-j c p" :description "compile project")
 		      '(:key "C-c C-j t c" :description "junit class")
 		      '(:key "C-c C-j t t" :description "junit test case")
+		      '(:key "C-c C-j n c" :description "new class")
 		      '(:key "M-."       :description "jump to declaration")
 		      '(:key "M-,"       :description "jump back")
 		      '(:key "M-x company-complete" :description "Find class then use M-. to jump to symbol")
