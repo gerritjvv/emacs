@@ -15,6 +15,7 @@
 (require 'counsel-projectile)
 (require 'imenu-anywhere)
 (require 'magit)
+(require 'ivy-rich)
 
 (counsel-projectile-on)
 
@@ -22,8 +23,31 @@
 (ivy-mode 1)
 
 
-(setq ivy-use-virtual-buffers t)
-(setq ivy-count-format "(%d/%d) ")
+(defun my--ivy-rich-switch-buffer-transformer (str)
+  "Transform STR to more readable format.
+
+Currently the transformed format is
+
+| Buffer name |  Project"
+  (let ((buf (get-buffer str)))
+    (cond (buf (with-current-buffer buf
+                 (let* ((indicator  (ivy-rich-switch-buffer-indicators))
+			(buf-name   (ivy-rich-switch-buffer-buffer-name))
+			(project    (ivy-rich-switch-buffer-project))
+                        (path       (ivy-rich-switch-buffer-path project)))
+                   (ivy-rich-switch-buffer-format `(,buf-name ,project ,path)))))
+          ((and (eq ivy-virtual-abbreviate 'full)
+                ivy-rich-switch-buffer-align-virtual-buffer)
+           (ivy-rich-switch-buffer-virtual-buffer))
+          (t str))))
+
+(ivy-set-display-transformer 'ivy-switch-buffer 'my--ivy-rich-switch-buffer-transformer)
+
+(setq ivy-use-virtual-buffers t
+      ivy-count-format "(%d/%d) "
+      ivy-virtual-abbreviate 'name
+      ivy-rich-switch-buffer-align-virtual-buffer t
+      ivy-rich-abbreviate-paths t)
 
 (setq projectile-completion-system 'ivy)
 

@@ -46,7 +46,8 @@
 		      '(:key "C-c C-j t t" :description "junit test case")
 		      '(:key "M-."       :description "jump to declaration")
 		      '(:key "M-,"       :description "jump back")
-		      '(:key "M-x company-complete" :description "Find class then use M-. to jump to symbol"))
+		      '(:key "M-x company-complete" :description "Find class then use M-. to jump to symbol")
+		      '(:key "<tab>"  :description "Indent or if a yasnippet key pa (package) con(constructor), p (print) cla (class) int(interface) prop(get/set) new list set tos main ife tryc"))
 
 (provide 'my-cheatsheet)
 ;;; my-cheatsheet.el ends here
