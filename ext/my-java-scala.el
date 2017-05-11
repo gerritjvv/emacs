@@ -46,7 +46,6 @@
       (search-forward "{")
       (newline 2))))
 
-
 (use-package meghanada
   :bind (
 	 :map java-mode-map

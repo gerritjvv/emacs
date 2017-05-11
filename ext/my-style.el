@@ -50,6 +50,17 @@
     (tuple    'python)
     (tuple    'java)))
 
+;;see https://github.com/emacs-mirror/emacs/blob/master/lisp/progmodes/cc-vars.el#L656
+(defvar my--hanging-braces-alist-nextline
+  '((inexpr-class-open (before after))
+    (inexpr-class-close before)
+    (class-open  (before after))
+    (inclass     (before after))
+    (defun-block-intro (before after)))
+  "Used if curly_bracket_nextline is t.
+Sets the class open, innner class method and if { on new line")
+
+
 (defun parse-brace-style (style)
   "Return the correct symbol from the STYLE string or if not supported use BSD."
   (car
@@ -62,6 +73,12 @@
 (defun my-create-style-from-config (cfg)
   "Create a style list from CFG which should be the editorconfig hash."
   `(,(format "%s" (parse-brace-style (gethash 'indent_brace_style cfg "bsd")))
+
+    (c-hanging-braces-alist     (if (gethash 'curly_bracket_next_line cfg false)
+				    (append
+				     my--hanging-braces-alist-nextline
+				     c-hanging-braces-alist)
+				  c-hanging-braces-alist))
 
     (c-basic-offset             (gethash 'indent_size cfg 4))
     (c-tab-always-indent        . t)

@@ -33,7 +33,7 @@
 (depends-on "groovy-mode")
 (depends-on "imenu-anywhere")
 (depends-on "ivy")
-(depends-on "ivy-rich")
+(depends-on "ivy-hydra")
 (depends-on "ivy-rtags")
 (depends-on "java-snippets")
 (depends-on "javadoc-lookup")
