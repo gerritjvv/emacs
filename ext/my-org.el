@@ -14,7 +14,7 @@
 
 (setq org-return-follows-link t)
 
-    
+
 
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-c t") (lambda (&rest args)
@@ -22,7 +22,7 @@
 				(if (util-line-contains-opt-p "[]" "[ ]" "[X]" "[x]" "[-]")
 				    (org-toggle-checkbox)
 				  (org-todo))))
-				
+
 (setq org-refile-targets (-map (lambda (x) `(,x :maxlevel . 1)) (org-agenda-files)))
 
 (setq org-default-notes-file "~/Dropbox/Org/todo.org")
@@ -32,7 +32,7 @@
          ((tags "PRIORITY=\"A\""
                 ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
                  (org-agenda-overriding-header "High-priority unfinished tasks:")))
-          (agenda "" ((org-agenda-ndays 2)))
+          (agenda "" ((org-agenda-ndays 5)))
           (alltodo ""
                    ((org-agenda-skip-function '(or (air-org-skip-subtree-if-habit)
                                                    (air-org-skip-subtree-if-priority ?A)
