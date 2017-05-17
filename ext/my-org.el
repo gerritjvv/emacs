@@ -8,7 +8,7 @@
 (require 'find-lisp)
 (require 'dash)
 (require 'org)
-(require 'my-util)
+
 
 (setq org-agenda-files (find-lisp-find-files "~/Dropbox/Org/" "\\.org$"))
 
