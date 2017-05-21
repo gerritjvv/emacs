@@ -70,10 +70,20 @@
 	    (yas-minor-mode-on)
 	    (eldoc-mode t)
 	    (flycheck-mode t)
-	    (c-toggle-auto-newline 't) ;;automatically insert new lines where
+	    (c-toggle-auto-newline t) ;;automatically insert new lines where
+	    (hs-hide-level 2)
+	    (linum-mode t)
 	    (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 	    ))
+
+(add-hook 'c-mode-common-hook
+  (lambda()
+    (local-set-key (kbd "C-c <right>") 'hs-show-block)
+    (local-set-key (kbd "C-c <left>")  'hs-hide-block)
+    (local-set-key (kbd "C-c <up>")    'hs-hide-all)
+    (local-set-key (kbd "C-c <down>")  'hs-show-all)
+    (hs-minor-mode t)))
 
 (add-hook 'groovy-mode-hook
 	  (lambda ()

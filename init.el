@@ -9,6 +9,8 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 
+;;; Code:
+
 (require 'package)
 
 (package-initialize)
@@ -85,6 +87,13 @@
 (require 'eldoc)
 (global-eldoc-mode t)
 
+
+(when (eq system-type 'darwin)
+  (require 'ls-lisp)
+  (setq ls-lisp-use-insert-directory-program nil))
+
+(setq exec-path-from-shell-check-startup-files nil)
+
 ;;;;;;;;;; copy shell paths
 ;;; https://github.com/purcell/exec-path-from-shell
 
@@ -145,7 +154,7 @@
  '(elfeed-feeds nil)
  '(package-selected-packages
    (quote
-    (elfeed-goodies elfeed-org elfeed sqlup-mode pdf-tools ivy-hydra ivy-rich java-snippets github-browse-file github-search javadoc-lookup cssh editorconfig clojure-cheatsheet cheatsheet better-shell shell-pop god-mode org-projectile noctilux-theme org-pomodoro dashboard projectile-speedbar flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
+    (persp-projectile perspective flycheck-demjsonlint json-mode groovy-imports grails-mode neotree elfeed-goodies elfeed-org elfeed sqlup-mode pdf-tools ivy-hydra ivy-rich java-snippets github-browse-file github-search javadoc-lookup cssh editorconfig clojure-cheatsheet cheatsheet better-shell shell-pop god-mode org-projectile noctilux-theme org-pomodoro dashboard projectile-speedbar flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
  '(projectile-mode t nil (projectile))
  '(which-key-mode t))
 (custom-set-faces
