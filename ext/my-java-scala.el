@@ -17,6 +17,9 @@
 (require 'ivy)
 (require 'yasnippet)
 (require 'java-snippets)
+(require 'comment-dwim-2)
+
+(global-set-key (kbd "M-;") 'comment-dwim-2)
 
 (setq javadoc-lookup-completing-read-function 'ivy-completing-read)
 

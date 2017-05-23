@@ -12,6 +12,8 @@
 (require 'counsel)
 (require 'swiper)
 (require 'projectile)
+(require 'perspective)
+(require 'persp-projectile)
 (require 'counsel-projectile)
 (require 'imenu-anywhere)
 (require 'magit)
@@ -19,6 +21,7 @@
 
 (counsel-projectile-on)
 
+(persp-mode 1)
 (projectile-mode 1)
 (ivy-mode 1)
 
@@ -56,6 +59,8 @@
 (global-set-key (kbd "<f2> l") 'counsel-find-library)
 (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
 (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+
+;;(global-set-key (kbd "") 'projectile-persp-switch-project)
 
 (global-set-key (kbd "C-c g") 'counsel-git)
 (global-set-key (kbd "C-c j") 'counsel-git-grep) ;; prefer counsel-ag
