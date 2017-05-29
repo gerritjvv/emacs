@@ -9,13 +9,16 @@
 
 (load-theme 'zenburn t)
 
+(require 'smart-mode-line-powerline-theme)
+
+(powerline-default-theme)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;; windowing movement functions
 
 (require 'zenburn-theme)
 (load-theme 'zenburn t)
 
-(desktop-save-mode 1)
 
 (require 'all-the-icons)
 

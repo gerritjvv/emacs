@@ -10,3 +10,6 @@ brew install infer
 curl https://raw.githubusercontent.com/simonthum/git-sync/master/git-sync > /usr/local/bin/git-sync
 chmod +x /usr/local/bin/git-sync
 
+
+brew install tor
+

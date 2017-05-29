@@ -21,7 +21,8 @@
   (interactive)
   (elfeed-db-load)
   (elfeed)
-  (elfeed-search-update--force))
+  (elfeed-search-update--force)
+  (elfeed-update))
 
 ;;write to disk when quiting
 (defun my--elfeed-save-db-and-bury ()
