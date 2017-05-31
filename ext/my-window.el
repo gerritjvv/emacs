@@ -9,10 +9,14 @@
 
 (load-theme 'zenburn t)
 
-(require 'smart-mode-line-powerline-theme)
+
+(require 'powerline)
 
 (powerline-default-theme)
 
+(setq powerline-arrow-shape 'arrow)   ;; the default
+(setq powerline-arrow-shape 'curve)   ;; give your mode-line curves
+(setq powerline-arrow-shape 'arrow14) ;; best for small fonts
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;; windowing movement functions
 
