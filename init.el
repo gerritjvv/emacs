@@ -91,6 +91,8 @@ See https://www.emacswiki.org/emacs/AutoSave"
 (load "my-sql")
 (load "my-elfeed")
 
+(load "my-shiftkeys")
+
 (global-auto-revert-mode 1)
 (global-company-mode)
 
