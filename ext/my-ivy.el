@@ -90,12 +90,15 @@
 							".gradle"
 							".gradle-old"
 							".metadata"
+							"elfeeddb"
 							".cask"
+							"jdt.ls-java-project"
 							"elpa")
 						      projectile-globally-ignored-directories))
 
 
 (setq projectile-globally-ignored-file-suffixes '(".class" ".jar" ".dat" ".rpm" ".deb" ".bin" ".tar" ".tar.gz" ".gz" ".bz2" ".lzo" ".zip" ".el~" ".el#" ".cache" ".el.swp" ".png" ".jpg" ".gif"
+						  ".swo" ".swp" ".back" ".bak" ".eld"
  ".java#" ".org#"))
 
 ;;(setq projectile-switch-project-action )

@@ -42,7 +42,7 @@
 
 
 (defun org-agenda-show-unscheduled (&optional arg)
-  (interactive "P")
+t  (interactive "P")
   (org-agenda arg "d"))
 
 (global-set-key (kbd "<f6>") 'org-agenda-show-unscheduled)

@@ -91,6 +91,8 @@ See https://www.emacswiki.org/emacs/AutoSave"
 (load "my-sql")
 (load "my-elfeed")
 
+(load "my-docker")
+
 (load "my-shiftkeys")
 
 (global-auto-revert-mode 1)
@@ -172,7 +174,7 @@ See https://www.emacswiki.org/emacs/AutoSave"
  '(elfeed-feeds nil)
  '(package-selected-packages
    (quote
-    (smart-mode-line-powerline-theme gradle-mode ninja-mode flycheck-yamllint yaml-mode comment-dwim-2 persp-mode-projectile-bridge persp-projectile perspective flycheck-demjsonlint json-mode groovy-imports grails-mode neotree elfeed-goodies elfeed-org elfeed sqlup-mode pdf-tools ivy-hydra ivy-rich java-snippets github-browse-file github-search javadoc-lookup cssh editorconfig clojure-cheatsheet cheatsheet better-shell shell-pop god-mode org-projectile noctilux-theme org-pomodoro dashboard projectile-speedbar flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
+    (dockerfile-mode ansible ansible-doc company-ansible smart-mode-line-powerline-theme gradle-mode ninja-mode flycheck-yamllint yaml-mode comment-dwim-2 persp-mode-projectile-bridge persp-projectile perspective flycheck-demjsonlint json-mode groovy-imports grails-mode neotree elfeed-goodies elfeed-org elfeed sqlup-mode pdf-tools ivy-hydra ivy-rich java-snippets github-browse-file github-search javadoc-lookup cssh editorconfig clojure-cheatsheet cheatsheet better-shell shell-pop god-mode org-projectile noctilux-theme org-pomodoro dashboard projectile-speedbar flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
  '(projectile-mode t nil (projectile))
  '(which-key-mode t))
 (custom-set-faces
