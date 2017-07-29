@@ -50,5 +50,8 @@
 		      '(:key "M-x company-complete" :description "Find class then use M-. to jump to symbol")
 		      '(:key "<tab>"  :description "Indent or if a yasnippet key pa (package) con(constructor), p (print) cla (class) int(interface) prop(get/set) new list set tos main ife tryc"))
 
+(cheatsheet-add-group 'Perp-mode
+		      '(:key "[n]ext [p]revious [s]create/switch [r]rename [C]kill [a]add-buffer [b]switch-buffer [k] remove buffer [w]save-to-file [l]load" :description ""))
+
 (provide 'my-cheatsheet)
 ;;; my-cheatsheet.el ends here

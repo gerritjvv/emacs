@@ -26,6 +26,8 @@
 
 (setq load-path (append '("~/.emacs.d/ext" "~/.emacs.d/ext/treemacs") load-path))
 
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+
 (defvar cask-paths '("/usr/local/share/emacs/site-lisp/cask/cask.el"
                          "~/.cask/cask.el"))
 
@@ -138,9 +140,21 @@ See https://www.emacswiki.org/emacs/AutoSave"
 
 (put 'eval-expression 'disabled nil)
 
-(require 'god-mode)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;; dashboard
 
-(global-set-key (kbd "<f12>") 'god-mode)
+
+(require 'dashboard)
+(dashboard-setup-startup-hook)
+;; Or if you use use-package
+(use-package dashboard
+  :config
+  (dashboard-setup-startup-hook))
+
+(setq dashboard-items '((recents  . 5)
+                        (bookmarks . 5)
+                        (projects . 10)
+                        (agenda . 5)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;; Searching and Modifying Buffers  Writing GNU Emac CH4
 
@@ -172,9 +186,12 @@ See https://www.emacswiki.org/emacs/AutoSave"
    (quote
     ("4980e5ddaae985e4bae004280bd343721271ebb28f22b3e3b2427443e748cd3f" "f5512c02e0a6887e987a816918b7a684d558716262ac7ee2dd0437ab913eaec6" default)))
  '(elfeed-feeds nil)
+ '(org-modules
+   (quote
+    (org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-rmail org-w3m org-drill org-eshell)))
  '(package-selected-packages
    (quote
-    (dockerfile-mode ansible ansible-doc company-ansible smart-mode-line-powerline-theme gradle-mode ninja-mode flycheck-yamllint yaml-mode comment-dwim-2 persp-mode-projectile-bridge persp-projectile perspective flycheck-demjsonlint json-mode groovy-imports grails-mode neotree elfeed-goodies elfeed-org elfeed sqlup-mode pdf-tools ivy-hydra ivy-rich java-snippets github-browse-file github-search javadoc-lookup cssh editorconfig clojure-cheatsheet cheatsheet better-shell shell-pop god-mode org-projectile noctilux-theme org-pomodoro dashboard projectile-speedbar flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
+    (org-plus-contrib perspeen persp-mode dockerfile-mode ansible ansible-doc company-ansible smart-mode-line-powerline-theme gradle-mode ninja-mode flycheck-yamllint yaml-mode comment-dwim-2 persp-mode-projectile-bridge persp-projectile perspective flycheck-demjsonlint json-mode groovy-imports grails-mode neotree elfeed-goodies elfeed-org elfeed sqlup-mode pdf-tools ivy-hydra ivy-rich java-snippets github-browse-file github-search javadoc-lookup cssh editorconfig clojure-cheatsheet cheatsheet better-shell shell-pop god-mode org-projectile noctilux-theme org-pomodoro dashboard projectile-speedbar flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
  '(projectile-mode t nil (projectile))
  '(which-key-mode t))
 (custom-set-faces

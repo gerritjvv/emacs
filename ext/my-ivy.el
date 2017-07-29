@@ -18,6 +18,8 @@
 (require 'imenu-anywhere)
 (require 'magit)
 (require 'ivy-hydra)
+;; (require 'persp-mode)
+;; (require 'persp-mode-projectile-bridge)
 
 (counsel-projectile-on)
 
@@ -101,7 +103,15 @@
 						  ".swo" ".swp" ".back" ".bak" ".eld"
  ".java#" ".org#"))
 
-;;(setq projectile-switch-project-action )
+;;;;;;;;;;; perp-mode
+;;; try https://github.com/seudut/perspeen
+(use-package perspeen
+  :ensure t
+  :init
+  (setq perspeen-use-tab t)
+  :config
+  (perspeen-mode))
+
 
 (provide 'my-ivy)
 ;;; my-ivy.el ends here
