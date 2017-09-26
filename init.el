@@ -39,6 +39,8 @@
 (pallet-mode t)
 
 (require 'company)
+(setq company-idle-delay 0)
+(global-set-key (kbd "S-<tab>") 'company-complete)
 
 (add-hook 'after-init-hook 'global-company-mode)
 
@@ -191,7 +193,7 @@ See https://www.emacswiki.org/emacs/AutoSave"
     (org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-rmail org-w3m org-drill org-eshell)))
  '(package-selected-packages
    (quote
-    (nasm-mode js3-mode react-snippets org-plus-contrib perspeen persp-mode dockerfile-mode ansible ansible-doc company-ansible smart-mode-line-powerline-theme gradle-mode ninja-mode flycheck-yamllint yaml-mode comment-dwim-2 persp-mode-projectile-bridge persp-projectile perspective flycheck-demjsonlint json-mode groovy-imports grails-mode neotree elfeed-goodies elfeed-org elfeed sqlup-mode pdf-tools ivy-hydra ivy-rich java-snippets github-browse-file github-search javadoc-lookup cssh editorconfig clojure-cheatsheet cheatsheet better-shell shell-pop god-mode org-projectile noctilux-theme org-pomodoro dashboard projectile-speedbar flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
+    (company-irony company-irony-c-headers company-shell flycheck-irony irony-eldoc irony company-c-headers nasm-mode js3-mode react-snippets org-plus-contrib perspeen persp-mode dockerfile-mode ansible ansible-doc company-ansible smart-mode-line-powerline-theme gradle-mode ninja-mode flycheck-yamllint yaml-mode comment-dwim-2 persp-mode-projectile-bridge persp-projectile perspective flycheck-demjsonlint json-mode groovy-imports grails-mode neotree elfeed-goodies elfeed-org elfeed sqlup-mode pdf-tools ivy-hydra ivy-rich java-snippets github-browse-file github-search javadoc-lookup cssh editorconfig clojure-cheatsheet cheatsheet better-shell shell-pop god-mode org-projectile noctilux-theme org-pomodoro dashboard projectile-speedbar flycheck-cask flycheck-clojure meghanada memory-usage all-the-icons-dired all-the-icons groovy-mode company-quickhelp smartparens cider undo-tree magit use-package ag dumb-jump counsel-gtags ggtags zenburn-theme epc which-key ivy-rtags find-file-in-project counsel-projectile projectile counsel ivy)))
  '(projectile-mode t nil (projectile))
  '(which-key-mode t))
 (custom-set-faces

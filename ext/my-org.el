@@ -30,6 +30,9 @@
 	 "* TODO %?\n  %i\n  %a")
 	("n" "ShellCodersNotes" entry
 	 (file+headline (concat org-directory "/readingnotes/shellcoders.org") "Drill Notes")
+	 "* %^{Note heading} :drill:\n %t\n %^{Longer notes (may be empty)} \n** Answer \n%^{The definition}")
+	("p" "TOTP HMAC OTP" entry
+	 (file+headline (concat org-directory "/readingnotes/totphmac.org") "Drill Notes")
 	 "* %^{Note heading} :drill:\n %t\n %^{Longer notes (may be empty)} \n** Answer \n%^{The definition}")))
 
 (provide 'my-org)
