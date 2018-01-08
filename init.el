@@ -188,6 +188,9 @@ See https://www.emacswiki.org/emacs/AutoSave"
    (quote
     ("4980e5ddaae985e4bae004280bd343721271ebb28f22b3e3b2427443e748cd3f" "f5512c02e0a6887e987a816918b7a684d558716262ac7ee2dd0437ab913eaec6" default)))
  '(elfeed-feeds nil)
+ '(org-agenda-files
+   (quote
+    ("/Users/gvanvuuren/Sync/Org/reading.org" "/Users/gvanvuuren/Sync/Org/macprovisioning.org" "/Users/gvanvuuren/Sync/Org/personal.org" "/Users/gvanvuuren/Sync/Org/emacs.org" "/Users/gvanvuuren/Sync/Org/work/datastax/qa.org" "/Users/gvanvuuren/Sync/Org/work/datastax/security-threats.org" "/Users/gvanvuuren/Sync/Org/work/datastax/cracking-tools.org" "/Users/gvanvuuren/Sync/Org/work/datastax/advrep-archive.org" "/Users/gvanvuuren/Sync/Org/work/datastax/security-incidents.org" "/Users/gvanvuuren/Sync/Org/work/datastax/security-archive.org" "/Users/gvanvuuren/Sync/Org/work/noddus/archive.org" "/Users/gvanvuuren/Sync/Org/help.org" "/Users/gvanvuuren/Sync/Org/opensource.org" "/Users/gvanvuuren/Sync/Org/todo.org" "/Users/gvanvuuren/Sync/Org/elfeed.org" "/Users/gvanvuuren/Sync/Org/remotework.org" "/Users/gvanvuuren/Sync/Org/readingnotes/shellcoders.org" "/Users/gvanvuuren/Sync/Org/readingnotes/assemblyStepByStep.org" "/Users/gvanvuuren/Sync/Org/readingnotes/totphmac.org" "/Users/gvanvuuren/Sync/Org/readingnotes/assemblyStepByStepCards.org" "/Users/gvanvuuren/Sync/Org/tasksheet.org")))
  '(org-modules
    (quote
     (org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-rmail org-w3m org-drill org-eshell)))

@@ -13,7 +13,7 @@
 (require 'cl)
 (require 'org-drill)
 
-(setq org-agenda-files (find-lisp-find-files "~/Dropbox/Org/" "\\.org$"))
+(setq org-agenda-files (find-lisp-find-files "~/Sync/Org/" "\\.org$"))
 
 (setq org-return-follows-link t)
 
@@ -21,12 +21,12 @@
 
 (global-set-key (kbd "C-c c") 'org-capture)
 
-(setq org-directory "~/Dropbox/Org")
+(setq org-directory "~/Sync/Org")
 
 (setq org-refile-targets (-map (lambda (x) `(,x :maxlevel . 1)) (org-agenda-files)))
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/Dropbox/Org/tasksheet.org" "Tasks")
+      '(("t" "Todo" entry (file+headline "~/Sync/Org/tasksheet.org" "Tasks")
 	 "* TODO %?\n  %i\n  %a")
 	("n" "ShellCodersNotes" entry
 	 (file+headline (concat org-directory "/readingnotes/shellcoders.org") "Drill Notes")

@@ -5,7 +5,7 @@
 
 ;;; Code:
 
-(setq elfeed-db-directory "~/Dropbox/Org/elfeeddb")
+(setq elfeed-db-directory "~/Sync/Org/elfeeddb")
 
 
 (defun elfeed-mark-all-as-read ()
@@ -58,7 +58,7 @@
   :ensure t
   :config
   (elfeed-org)
-  (setq rmh-elfeed-org-files (list "~/Dropbox/Org/elfeed.org")))
+  (setq rmh-elfeed-org-files (list "~/Sync/Org/elfeed.org")))
 
 
 ;; (defun my--display-current-entry-feed ()
